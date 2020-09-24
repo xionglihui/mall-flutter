@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:mall_flutter/Day1_Future.dart';
 import 'package:mall_flutter/Day2_Route.dart';
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       initialRoute: "/",
       onGenerateRoute:(RouteSettings settings){
-        return MaterialPageRoute(builder: (context){//onGenerateRoute 回调权限控制
+        return MaterialPageRoute(builder: (context){//onGenerateRoute 全局的路由跳转前置处理逻辑
           String routeName = settings.name;
           if(routeName=="MyTests"){
             return MyTests(title: "MyTests");
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/":(context)=>HomePage(),//首页注册路由
         // "MyTests":(context) =>MyTests(),
-        "MyParamsRoute":(context)=>MyParamsRoute(text: ModalRoute.of(context).settings.arguments),
+        "MyParamsRoute":(context)=>MyParamsRoute(text: ModalRoute.of(context).settings.arguments),//注册路由传参
       },
       // home: new HomePage(), //首页
     );
@@ -35,6 +38,8 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+   final num=  WordPair.random();
     // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
@@ -42,8 +47,12 @@ class HomePage extends StatelessWidget {
       ),
       body: new Center(
         child: new Column(
-          children: [
+          children:<Widget> [
             new Text("你好吗"),
+            new Text(num.toString()),
+            Image.asset("assets/images/rbt_main_main_checked.png"),
+            //图片加载 在pubspec.yaml flutter节点配置 assets节点 如果加载报错 建议flutter clean 再运行
+
             new FlatButton(
                 onPressed: () {
                   //非命名路由跳转
