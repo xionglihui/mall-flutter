@@ -4,6 +4,8 @@ import 'package:mall_flutter/Day1_Future.dart';
 import 'package:mall_flutter/Day2_Route.dart';
 import 'package:mall_flutter/Day3_Widget_Intro.dart';
 import 'package:mall_flutter/Day4_Status.dart';
+import 'package:mall_flutter/Day4_Text.dart';
+import 'package:mall_flutter/Day5_Buttom.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
             ),
         "TapboxA": (context) => TapboxA(),
         "ParentWidget": (context) => ParentWidget(),
+        "TextTest": (context) => TextTest(),
+        "BottomTest":(context)=>BottomTest(),
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
       },
@@ -56,6 +60,14 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Text("你好吗"),
             Text(num.toString()),
+            FlatButton(
+              child: Text("Bottom"),
+              onPressed: ()=>Navigator.pushNamed(context, "BottomTest"),
+            ),
+            FlatButton(
+              child: Text("TextTest"),
+              onPressed: () => {Navigator.pushNamed(context, "TextTest")},
+            ),
             FlatButton(
               onPressed: () => {Navigator.pushNamed(context, "Echo")},
               child: new Text("StatelessWidget"),
