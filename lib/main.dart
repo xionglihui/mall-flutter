@@ -6,6 +6,8 @@ import 'package:mall_flutter/Day3_Widget_Intro.dart';
 import 'package:mall_flutter/Day4_Status.dart';
 import 'package:mall_flutter/Day4_Text.dart';
 import 'package:mall_flutter/Day5_Buttom.dart';
+import 'package:mall_flutter/Day5_Checked.dart';
+import 'package:mall_flutter/Day5_Image.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,10 +36,12 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "CheckTest": (context) => CheckTest(),
         "TapboxA": (context) => TapboxA(),
         "ParentWidget": (context) => ParentWidget(),
         "TextTest": (context) => TextTest(),
-        "BottomTest":(context)=>BottomTest(),
+        "BottomTest": (context) => BottomTest(),
+        "ImageTest": (context) => ImageTest(),
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
       },
@@ -58,11 +62,26 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text("你好吗"),
             Text(num.toString()),
             FlatButton(
+              child: Text(
+                "Checked",
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
+              onPressed: () => Navigator.pushNamed(context, "CheckTest"),
+            ),
+            FlatButton(
+              child: Text(
+                "ImageTest",
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
+              onPressed: () => Navigator.pushNamed(context, "ImageTest"),
+            ),
+            FlatButton(
               child: Text("Bottom"),
-              onPressed: ()=>Navigator.pushNamed(context, "BottomTest"),
+              onPressed: () => Navigator.pushNamed(context, "BottomTest"),
             ),
             FlatButton(
               child: Text("TextTest"),
