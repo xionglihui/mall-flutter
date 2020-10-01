@@ -8,6 +8,7 @@ import 'package:mall_flutter/Day4_Text.dart';
 import 'package:mall_flutter/Day5_Buttom.dart';
 import 'package:mall_flutter/Day5_Checked.dart';
 import 'package:mall_flutter/Day5_Image.dart';
+import 'package:mall_flutter/Day6_TextFiled.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         "ParentWidget": (context) => ParentWidget(),
         "TextTest": (context) => TextTest(),
         "BottomTest": (context) => BottomTest(),
+        "TextFiledTest":(context)=>TextFiledTest(),
         "ImageTest": (context) => ImageTest(),
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
@@ -70,6 +72,12 @@ class HomePage extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () => Navigator.pushNamed(context, "CheckTest"),
+            ),
+            FlatButton(
+              child: Text("TextFiledTest",style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
+              onPressed: ()=>Navigator.pushNamed(context, "TextFiledTest"),
+              
             ),
             FlatButton(
               child: Text(
