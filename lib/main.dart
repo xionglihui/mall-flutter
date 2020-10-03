@@ -8,6 +8,7 @@ import 'package:mall_flutter/Day4_Text.dart';
 import 'package:mall_flutter/Day5_Buttom.dart';
 import 'package:mall_flutter/Day5_Checked.dart';
 import 'package:mall_flutter/Day5_Image.dart';
+import 'package:mall_flutter/Day6_Progress.dart';
 import 'package:mall_flutter/Day6_TextFiled.dart';
 
 void main() {
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
             ),
         "CheckTest": (context) => CheckTest(),
         "TapboxA": (context) => TapboxA(),
+        "ProgressTest":(context)=>ProgressTest(),
         "ParentWidget": (context) => ParentWidget(),
         "TextTest": (context) => TextTest(),
         "BottomTest": (context) => BottomTest(),
@@ -72,6 +74,11 @@ class HomePage extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () => Navigator.pushNamed(context, "CheckTest"),
+            ),
+            FlatButton(
+              child: Text("ProgressTest",style: TextStyle(color: Colors.white),),
+              color: Colors.blue,
+              onPressed: ()=>Navigator.pushNamed(context, "ProgressTest"),
             ),
             FlatButton(
               child: Text("TextFiledTest",style: TextStyle(color: Colors.white)),
