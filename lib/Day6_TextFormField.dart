@@ -6,6 +6,7 @@ class TextFormFieldTest extends StatefulWidget {
 }
 
 class TextFormFieldStatus extends State {
+
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController pwdTextEditingController = TextEditingController();
 

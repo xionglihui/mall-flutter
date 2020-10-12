@@ -7,8 +7,8 @@ class TextFiledTest extends StatefulWidget {
 }
 
 class TextFiledTestStatus extends State {
-  TextEditingController nameTextEditingController = TextEditingController();
 
+  TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController pwdTextEditingController = TextEditingController();
 
   FocusNode nameFocusNode = FocusNode();
