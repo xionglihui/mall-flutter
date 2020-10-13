@@ -41,12 +41,12 @@ class MyApp extends StatelessWidget {
             ),
         "CheckTest": (context) => CheckTest(),
         "TapboxA": (context) => TapboxA(),
-        "ProgressTest":(context)=>ProgressTest(),
+        "ProgressTest": (context) => ProgressTest(),
         "ParentWidget": (context) => ParentWidget(),
         "TextTest": (context) => TextTest(),
         "BottomTest": (context) => BottomTest(),
-        "TextFiledTest":(context)=>TextFiledTest(),
-        "TextFormFieldTest":(context)=>TextFormFieldTest(),
+        "TextFiledTest": (context) => TextFiledTest(),
+        "TextFormFieldTest": (context) => TextFormFieldTest(),
         "ImageTest": (context) => ImageTest(),
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
@@ -62,81 +62,91 @@ class HomePage extends StatelessWidget {
     final num = WordPair.random();
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Demo"),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text(num.toString()),
-            FlatButton(
-              child: Text(
-                "Checked",
-                style: TextStyle(color: Colors.white),
-              ),
-              color: Colors.blue,
-              onPressed: () => Navigator.pushNamed(context, "CheckTest"),
-            ),
-            FlatButton(
-              child: Text("ProgressTest",style: TextStyle(color: Colors.white),),
-              color: Colors.blue,
-              onPressed: ()=>Navigator.pushNamed(context, "ProgressTest"),
-            ),
-            FlatButton(
-              child: Text("TextFormFieldTest",style: TextStyle(color: Colors.white),),
-              color: Colors.blue,
-              onPressed: ()=>Navigator.pushNamed(context, "TextFormFieldTest"),
-            ),
-            FlatButton(
-              child: Text("TextFiledTest",style: TextStyle(color: Colors.white)),
-              color: Colors.blue,
-              onPressed: ()=>Navigator.pushNamed(context, "TextFiledTest"),
-              
-            ),
-            FlatButton(
-              child: Text(
-                "ImageTest",
-                style: TextStyle(color: Colors.white),
-              ),
-              color: Colors.blue,
-              onPressed: () => Navigator.pushNamed(context, "ImageTest"),
-            ),
-            FlatButton(
-              child: Text("Bottom"),
-              onPressed: () => Navigator.pushNamed(context, "BottomTest"),
-            ),
-            FlatButton(
-              child: Text("TextTest"),
-              onPressed: () => {Navigator.pushNamed(context, "TextTest")},
-            ),
-            FlatButton(
-              onPressed: () => {Navigator.pushNamed(context, "Echo")},
-              child: new Text("StatelessWidget"),
-            ),
-            FlatButton(
-              child: Text("Status"),
-              onPressed: () => Navigator.pushNamed(context, "TapboxA"),
-            ),
-            FlatButton(
-              child: Text("ParentWidget"),
-              onPressed: () => Navigator.pushNamed(context, "ParentWidget"),
-            ),
-            Image.asset("assets/images/rbt_main_main_checked.png"),
-            //图片加载 在pubspec.yaml flutter节点配置 assets节点 如果加载报错 建议flutter clean 再运行
-
-            FlatButton(
-                onPressed: () {
-                  //非命名路由跳转
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //   return MyTests(title: "ssss",);
-                  // }));
-                  // Navigator.pushNamed(context, "MyTests");
-                  Navigator.of(context).pushNamed("MyTests", arguments: "ssss");
-                },
-                child: new Text("click me"))
-          ],
+        appBar: AppBar(
+          title: Text("Demo"),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Text(num.toString()),
+                FlatButton(
+                  child: Text(
+                    "Checked",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () => Navigator.pushNamed(context, "CheckTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "ProgressTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () => Navigator.pushNamed(context, "ProgressTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "TextFormFieldTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "TextFormFieldTest"),
+                ),
+                FlatButton(
+                  child: Text("TextFiledTest",
+                      style: TextStyle(color: Colors.white)),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "TextFiledTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "ImageTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () => Navigator.pushNamed(context, "ImageTest"),
+                ),
+                FlatButton(
+                  child: Text("Bottom"),
+                  onPressed: () => Navigator.pushNamed(context, "BottomTest"),
+                ),
+                FlatButton(
+                  child: Text("TextTest"),
+                  onPressed: () => {Navigator.pushNamed(context, "TextTest")},
+                ),
+                FlatButton(
+                  onPressed: () => {Navigator.pushNamed(context, "Echo")},
+                  child: new Text("StatelessWidget"),
+                ),
+                FlatButton(
+                  child: Text("Status"),
+                  onPressed: () => Navigator.pushNamed(context, "TapboxA"),
+                ),
+                FlatButton(
+                  child: Text("ParentWidget"),
+                  onPressed: () => Navigator.pushNamed(context, "ParentWidget"),
+                ),
+                Image.asset("assets/images/rbt_main_main_checked.png"),
+                //图片加载 在pubspec.yaml flutter节点配置 assets节点 如果加载报错 建议flutter clean 再运行
+
+                FlatButton(
+                    onPressed: () {
+                      //非命名路由跳转
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      //   return MyTests(title: "ssss",);
+                      // }));
+                      // Navigator.pushNamed(context, "MyTests");
+                      Navigator.of(context)
+                          .pushNamed("MyTests", arguments: "ssss");
+                    },
+                    child: new Text("click me"))
+              ],
+            ),
+          ),
+        ));
   }
 }
