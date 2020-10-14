@@ -11,6 +11,7 @@ import 'package:mall_flutter/Day5_Image.dart';
 import 'package:mall_flutter/Day6_Progress.dart';
 import 'package:mall_flutter/Day6_TextFiled.dart';
 import 'package:mall_flutter/Day6_TextFormField.dart';
+import 'package:mall_flutter/Day7_Row_Column.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         "TextFiledTest": (context) => TextFiledTest(),
         "TextFormFieldTest": (context) => TextFormFieldTest(),
         "ImageTest": (context) => ImageTest(),
+        "RowOrColumnTest": (context) => RowOrColumnTest(),
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
       },
@@ -70,6 +72,15 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Text(num.toString()),
+                FlatButton(
+                  child: Text(
+                    "RowOrColumnTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, "RowOrColumnTest")},
+                ),
                 FlatButton(
                   child: Text(
                     "Checked",
