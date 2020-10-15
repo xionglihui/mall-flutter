@@ -11,6 +11,7 @@ import 'package:mall_flutter/Day5_Image.dart';
 import 'package:mall_flutter/Day6_Progress.dart';
 import 'package:mall_flutter/Day6_TextFiled.dart';
 import 'package:mall_flutter/Day6_TextFormField.dart';
+import 'package:mall_flutter/Day7_Flex.dart';
 import 'package:mall_flutter/Day7_Row_Column.dart';
 
 void main() {
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.red,
             ),
         "CheckTest": (context) => CheckTest(),
+        "FlexTest": (context) => FlexTest(),
         "TapboxA": (context) => TapboxA(),
         "ProgressTest": (context) => ProgressTest(),
         "ParentWidget": (context) => ParentWidget(),
@@ -72,6 +74,16 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Text(num.toString()),
+                FlatButton(
+                  child: Text(
+                    "FlexTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: ()=>{
+                    Navigator.pushNamed(context, "FlexTest"),
+                  },
+                ),
                 FlatButton(
                   child: Text(
                     "RowOrColumnTest",
