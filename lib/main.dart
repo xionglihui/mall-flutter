@@ -13,6 +13,7 @@ import 'package:mall_flutter/Day6_TextFiled.dart';
 import 'package:mall_flutter/Day6_TextFormField.dart';
 import 'package:mall_flutter/Day7_Flex.dart';
 import 'package:mall_flutter/Day7_Row_Column.dart';
+import 'package:mall_flutter/Day8_Wrap.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "WarpTest": (context) => WarpTest(),
         "CheckTest": (context) => CheckTest(),
         "FlexTest": (context) => FlexTest(),
         "TapboxA": (context) => TapboxA(),
@@ -76,11 +78,20 @@ class HomePage extends StatelessWidget {
                 Text(num.toString()),
                 FlatButton(
                   child: Text(
+                    "WarpTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, "WarpTest")},
+                ),
+                FlatButton(
+                  child: Text(
                     "FlexTest",
                     style: TextStyle(color: Colors.white),
                   ),
                   color: Colors.blue,
-                  onPressed: ()=>{
+                  onPressed: () => {
                     Navigator.pushNamed(context, "FlexTest"),
                   },
                 ),

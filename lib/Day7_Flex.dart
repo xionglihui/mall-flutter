@@ -32,6 +32,28 @@ class FlexTest extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
+            child: SizedBox(
+              height: 100,
+              child: Flex(
+                direction: Axis.vertical,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 30,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 30,
+                      color: Colors.green,
+                    ),
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
