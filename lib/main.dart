@@ -13,6 +13,7 @@ import 'package:mall_flutter/Day6_TextFiled.dart';
 import 'package:mall_flutter/Day6_TextFormField.dart';
 import 'package:mall_flutter/Day7_Flex.dart';
 import 'package:mall_flutter/Day7_Row_Column.dart';
+import 'package:mall_flutter/Day8_StackOrPositioned.dart';
 import 'package:mall_flutter/Day8_Wrap.dart';
 
 void main() {
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "StackOrPositionedTest":(context)=>StackOrPositionedTest(),
         "WarpTest": (context) => WarpTest(),
         "CheckTest": (context) => CheckTest(),
         "FlexTest": (context) => FlexTest(),
@@ -76,6 +78,13 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Text(num.toString()),
+                FlatButton(
+                  child: Text("StackOrPositionedTest",style: TextStyle(color: Colors.white),),
+                  color: Colors.blue,
+                  onPressed: ()=>{
+                    Navigator.pushNamed(context, "StackOrPositionedTest")
+                  },
+                ),
                 FlatButton(
                   child: Text(
                     "WarpTest",
