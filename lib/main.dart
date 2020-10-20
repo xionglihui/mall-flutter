@@ -13,6 +13,10 @@ import 'package:mall_flutter/Day6_TextFiled.dart';
 import 'package:mall_flutter/Day6_TextFormField.dart';
 import 'package:mall_flutter/Day7_Flex.dart';
 import 'package:mall_flutter/Day7_Row_Column.dart';
+import 'package:mall_flutter/Day8_Align.dart';
+import 'package:mall_flutter/Day8_Box.dart';
+import 'package:mall_flutter/Day8_DecoratedBox.dart';
+import 'package:mall_flutter/Day8_Padding.dart';
 import 'package:mall_flutter/Day8_StackOrPositioned.dart';
 import 'package:mall_flutter/Day8_Wrap.dart';
 
@@ -43,7 +47,11 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
-        "StackOrPositionedTest":(context)=>StackOrPositionedTest(),
+        "DecoratedBoxTest":(context)=> DecoratedBoxTest(),
+        "BoxTest": (context) => BoxTest(),
+        "PaddingTest": (context) => PaddingTest(),
+        "AlignTest": (context) => AlignTest(),
+        "StackOrPositionedTest": (context) => StackOrPositionedTest(),
         "WarpTest": (context) => WarpTest(),
         "CheckTest": (context) => CheckTest(),
         "FlexTest": (context) => FlexTest(),
@@ -77,13 +85,43 @@ class HomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: <Widget>[
-                Text(num.toString()),
                 FlatButton(
-                  child: Text("StackOrPositionedTest",style: TextStyle(color: Colors.white),),
+                  child: Text("DecoratedBoxTest",style: TextStyle(color: Colors.white),),
                   color: Colors.blue,
-                  onPressed: ()=>{
-                    Navigator.pushNamed(context, "StackOrPositionedTest")
-                  },
+                  onPressed: ()=>Navigator.pushNamed(context, "DecoratedBoxTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "BoxTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () => Navigator.pushNamed(context, "BoxTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "PaddingTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () => Navigator.pushNamed(context, "PaddingTest"),
+                ),
+                FlatButton(
+                  child: Text(
+                    "StackOrPositionedTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, "StackOrPositionedTest")},
+                ),
+                FlatButton(
+                  child: Text(
+                    "AlignTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => {Navigator.pushNamed(context, "AlignTest")},
+                  color: Colors.blue,
                 ),
                 FlatButton(
                   child: Text(
@@ -91,8 +129,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   color: Colors.blue,
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "WarpTest")},
+                  onPressed: () => {Navigator.pushNamed(context, "WarpTest")},
                 ),
                 FlatButton(
                   child: Text(
