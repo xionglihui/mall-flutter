@@ -19,6 +19,9 @@ import 'package:mall_flutter/Day8_DecoratedBox.dart';
 import 'package:mall_flutter/Day8_Padding.dart';
 import 'package:mall_flutter/Day8_StackOrPositioned.dart';
 import 'package:mall_flutter/Day8_Wrap.dart';
+import 'package:mall_flutter/Day9_Container.dart';
+import 'package:mall_flutter/Day9_Scaffold_TabBar.dart';
+import 'package:mall_flutter/Day9_Transform.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,7 +50,10 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
-        "DecoratedBoxTest":(context)=> DecoratedBoxTest(),
+        "ScaffoldTabBarTest": (context) => ScaffoldTabBarTest(),
+        "ContainerTest": (context) => ContainerTest(),
+        "TransformTest": (context) => TransformTest(),
+        "DecoratedBoxTest": (context) => DecoratedBoxTest(),
         "BoxTest": (context) => BoxTest(),
         "PaddingTest": (context) => PaddingTest(),
         "AlignTest": (context) => AlignTest(),
@@ -80,15 +86,49 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Demo"),
+          centerTitle: true,
+          backgroundColor: Color.fromRGBO(255,149,30,1),
         ),
+
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               children: <Widget>[
                 FlatButton(
-                  child: Text("DecoratedBoxTest",style: TextStyle(color: Colors.white),),
                   color: Colors.blue,
-                  onPressed: ()=>Navigator.pushNamed(context, "DecoratedBoxTest"),
+                  child: Text(
+                    "ScaffoldTabBarTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "ScaffoldTabBarTest"),
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "ContainerTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, "ContainerTest")},
+                ),
+                FlatButton(
+                  child: Text(
+                    "TransformTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      {Navigator.pushNamed(context, "TransformTest")},
+                ),
+                FlatButton(
+                  child: Text(
+                    "DecoratedBoxTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.blue,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "DecoratedBoxTest"),
                 ),
                 FlatButton(
                   child: Text(
