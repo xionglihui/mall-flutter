@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:mall_flutter/Day10_SingleChildScrollView.dart';
 import 'package:mall_flutter/Day1_Future.dart';
 import 'package:mall_flutter/Day2_Route.dart';
 import 'package:mall_flutter/Day3_Widget_Intro.dart';
@@ -19,6 +20,7 @@ import 'package:mall_flutter/Day8_DecoratedBox.dart';
 import 'package:mall_flutter/Day8_Padding.dart';
 import 'package:mall_flutter/Day8_StackOrPositioned.dart';
 import 'package:mall_flutter/Day8_Wrap.dart';
+import 'package:mall_flutter/Day9_Clip.dart';
 import 'package:mall_flutter/Day9_Container.dart';
 import 'package:mall_flutter/Day9_Scaffold_TabBar.dart';
 import 'package:mall_flutter/Day9_Transform.dart';
@@ -50,6 +52,8 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "SingleChildScrollViewTest": (context) => SingleChildScrollViewTest(),
+        "ClipTest": (context) => ClipTest(),
         "ScaffoldTabBarTest": (context) => ScaffoldTabBarTest(),
         "ContainerTest": (context) => ContainerTest(),
         "TransformTest": (context) => TransformTest(),
@@ -87,13 +91,30 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Demo"),
           centerTitle: true,
-          backgroundColor: Color.fromRGBO(255,149,30,1),
+          backgroundColor: Color.fromRGBO(255, 149, 30, 1),
         ),
-
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               children: <Widget>[
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "SingleChildScrollViewTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => {
+                    Navigator.pushNamed(context, "SingleChildScrollViewTest"),
+                  },
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "ClipTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Navigator.pushNamed(context, "ClipTest"),
+                ),
                 FlatButton(
                   color: Colors.blue,
                   child: Text(

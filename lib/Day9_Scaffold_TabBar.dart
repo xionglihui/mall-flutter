@@ -63,28 +63,73 @@ class ScaffoldTabBarStatus extends State with SingleTickerProviderStateMixin {
         onTap: hand,
       ),
       drawer: MyDrawa(),
+      body: TabBarView(
+          controller: tabController,
+          children: tabs
+              .map((e) => Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      e,
+                      textScaleFactor: 5,
+                    ),
+                  ))
+              .toList()),
     );
   }
 }
 
 class MyDrawa extends StatelessWidget {
+  const MyDrawa({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.all(12),
-          margin: EdgeInsets.only(top: 12),
-          color: Colors.blue,
-          child: Text("我的资料"),
-        ),
-        Container(
-          padding: EdgeInsets.all(12),
-          margin: EdgeInsets.only(top: 12),
-          color: Colors.blue,
-          child: Text("我的资料"),
-        ),
-      ],
+    return Drawer(
+      child: MediaQuery.removePadding(
+          context: context,
+          removeTop: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 38),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: ClipOval(
+                        child: Image(
+                          image: NetworkImage(
+                              "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603257088212&di=9fbae8fa8f811bf66f6f33962d8ea293&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2010%2F271%2FH236TA7U2D75_2083557.jpg"),
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "小哥的大哥",
+                      style: TextStyle(
+                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.filter_1),
+                      title: const Text("我的资料"),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.filter_2),
+                      title:  const Text("邀请好友"),
+                    )
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }
