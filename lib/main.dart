@@ -1,5 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:mall_flutter/Day10_CustomScrollView.dart';
+import 'package:mall_flutter/Day10_GridView.dart';
 import 'package:mall_flutter/Day10_ListView.dart';
 import 'package:mall_flutter/Day10_SingleChildScrollView.dart';
 import 'package:mall_flutter/Day1_Future.dart';
@@ -53,6 +55,8 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "CustomScrollViewTest": (context) => CustomScrollViewTest(),
+        "GridViewTest": (context) => GridViewTest(),
         "ListViewTest": (context) => ListViewTest(),
         "SingleChildScrollViewTest": (context) => SingleChildScrollViewTest(),
         "ClipTest": (context) => ClipTest(),
@@ -99,6 +103,23 @@ class HomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: <Widget>[
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "CustomScrollViewTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "CustomScrollViewTest"),
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "GridViewTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Navigator.pushNamed(context, "GridViewTest"),
+                ),
                 FlatButton(
                   color: Colors.blue,
                   child: Text(
