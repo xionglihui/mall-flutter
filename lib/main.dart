@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mall_flutter/Day10_CustomScrollView.dart';
 import 'package:mall_flutter/Day10_GridView.dart';
 import 'package:mall_flutter/Day10_ListView.dart';
+import 'package:mall_flutter/Day10_ScrollController.dart';
 import 'package:mall_flutter/Day10_SingleChildScrollView.dart';
 import 'package:mall_flutter/Day1_Future.dart';
 import 'package:mall_flutter/Day2_Route.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "ScrollControllerTest" :(context) =>ScrollControllerTest(),
         "CustomScrollViewTest": (context) => CustomScrollViewTest(),
         "GridViewTest": (context) => GridViewTest(),
         "ListViewTest": (context) => ListViewTest(),
@@ -103,6 +105,16 @@ class HomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: <Widget>[
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "ScrollControllerTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: ()=>{
+                    Navigator.pushNamed(context, "ScrollControllerTest")
+                  },
+                ),
                 FlatButton(
                   color: Colors.blue,
                   child: Text(
