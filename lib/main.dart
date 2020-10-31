@@ -1,38 +1,42 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:mall_flutter/Day10_CustomScrollView.dart';
-import 'package:mall_flutter/Day10_GridView.dart';
-import 'package:mall_flutter/Day10_ListView.dart';
-import 'package:mall_flutter/Day10_ScrollController.dart';
-import 'package:mall_flutter/Day10_SingleChildScrollView.dart';
-import 'package:mall_flutter/Day1_Future.dart';
-import 'package:mall_flutter/Day2_Route.dart';
-import 'package:mall_flutter/Day3_Widget_Intro.dart';
-import 'package:mall_flutter/Day4_Status.dart';
-import 'package:mall_flutter/Day4_Text.dart';
-import 'package:mall_flutter/Day5_Buttom.dart';
-import 'package:mall_flutter/Day5_Checked.dart';
-import 'package:mall_flutter/Day5_Image.dart';
-import 'package:mall_flutter/Day6_Progress.dart';
-import 'package:mall_flutter/Day6_TextFiled.dart';
-import 'package:mall_flutter/Day6_TextFormField.dart';
-import 'package:mall_flutter/Day7_Flex.dart';
-import 'package:mall_flutter/Day7_Row_Column.dart';
-import 'package:mall_flutter/Day8_Align.dart';
-import 'package:mall_flutter/Day8_Box.dart';
-import 'package:mall_flutter/Day8_DecoratedBox.dart';
-import 'package:mall_flutter/Day8_Padding.dart';
-import 'package:mall_flutter/Day8_StackOrPositioned.dart';
-import 'package:mall_flutter/Day8_Wrap.dart';
-import 'package:mall_flutter/Day9_Clip.dart';
-import 'package:mall_flutter/Day9_Container.dart';
-import 'package:mall_flutter/Day9_Scaffold_TabBar.dart';
-import 'package:mall_flutter/Day9_Transform.dart';
+import 'package:mall_flutter/view/home/HomeMain.dart';
+import 'package:mall_flutter/view/home/HomeMe.dart';
+import 'package:mall_flutter/view/home/HomeShopCard.dart';
+import 'package:mall_flutter/view/home/HomeWallet.dart';
+import 'package:mall_flutter/view/test/Day10_CustomScrollView.dart';
+import 'package:mall_flutter/view/test/Day10_GridView.dart';
+import 'package:mall_flutter/view/test/Day10_ListView.dart';
+import 'package:mall_flutter/view/test/Day10_ScrollController.dart';
+import 'package:mall_flutter/view/test/Day10_SingleChildScrollView.dart';
+import 'package:mall_flutter/view/test/Day11_InheritedWidget.dart';
+import 'package:mall_flutter/view/test/Day11_WillPopScope.dart';
+import 'package:mall_flutter/view/test/Day2_Route.dart';
+import 'package:mall_flutter/view/test/Day3_Widget_Intro.dart';
+import 'package:mall_flutter/view/test/Day4_Status.dart';
+import 'package:mall_flutter/view/test/Day4_Text.dart';
+import 'package:mall_flutter/view/test/Day5_Buttom.dart';
+import 'package:mall_flutter/view/test/Day5_Checked.dart';
+import 'package:mall_flutter/view/test/Day5_Image.dart';
+import 'package:mall_flutter/view/test/Day6_Progress.dart';
+import 'package:mall_flutter/view/test/Day6_TextFiled.dart';
+import 'package:mall_flutter/view/test/Day6_TextFormField.dart';
+import 'package:mall_flutter/view/test/Day7_Flex.dart';
+import 'package:mall_flutter/view/test/Day7_Row_Column.dart';
+import 'package:mall_flutter/view/test/Day8_Align.dart';
+import 'package:mall_flutter/view/test/Day8_Box.dart';
+import 'package:mall_flutter/view/test/Day8_DecoratedBox.dart';
+import 'package:mall_flutter/view/test/Day8_Padding.dart';
+import 'package:mall_flutter/view/test/Day8_StackOrPositioned.dart';
+import 'package:mall_flutter/view/test/Day8_Wrap.dart';
+import 'package:mall_flutter/view/test/Day9_Clip.dart';
+import 'package:mall_flutter/view/test/Day9_Container.dart';
+import 'package:mall_flutter/view/test/Day9_Scaffold_TabBar.dart';
+import 'package:mall_flutter/view/test/Day9_Transform.dart';
+import 'package:mall_flutter/view/utils/MyColors.dart';
 
 void main() {
   runApp(MyApp());
-  futureTest();
-  task();
 }
 
 class MyApp extends StatelessWidget {
@@ -50,13 +54,15 @@ class MyApp extends StatelessWidget {
         });
       },
       routes: {
-        "/": (context) => HomePage(), //首页注册路由
+        "/": (context) => Main(), //首页注册路由
         // "MyTests":(context) =>MyTests(),
         "Echo": (context) => Echo(
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
-        "ScrollControllerTest" :(context) =>ScrollControllerTest(),
+        "InheritedWidgetTest": (context) => InheritedWidgetTest(),
+        "WillPopScopeTest": (context) => WillPopScopeTest(),
+        "ScrollControllerTest": (context) => ScrollControllerTest(),
         "CustomScrollViewTest": (context) => CustomScrollViewTest(),
         "GridViewTest": (context) => GridViewTest(),
         "ListViewTest": (context) => ListViewTest(),
@@ -85,253 +91,120 @@ class MyApp extends StatelessWidget {
         "MyParamsRoute": (context) => MyParamsRoute(
             text: ModalRoute.of(context).settings.arguments), //注册路由传参
       },
-      // home: new HomePage(), //首页
+      // view.home: new HomePage(), //首页
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class Main extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => MainState();
+}
+
+class MainState extends State {
+  int chooseIndex = 0;
+  List<Widget> pages = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    pages.add(HomeMain());
+    pages.add(HomeShopCard());
+    pages.add(HomeWallet());
+    pages.add(HomeMe());
+  }
+
+  void setOnTap(int index) {
+    setState(() {
+      chooseIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final num = WordPair.random();
-    // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Demo"),
-          centerTitle: true,
-          backgroundColor: Color.fromRGBO(255, 149, 30, 1),
-        ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "ScrollControllerTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: ()=>{
-                    Navigator.pushNamed(context, "ScrollControllerTest")
-                  },
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "CustomScrollViewTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "CustomScrollViewTest"),
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "GridViewTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () => Navigator.pushNamed(context, "GridViewTest"),
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "ListViewTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "ListViewTest")},
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "SingleChildScrollViewTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () => {
-                    Navigator.pushNamed(context, "SingleChildScrollViewTest"),
-                  },
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "ClipTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () => Navigator.pushNamed(context, "ClipTest"),
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "ScaffoldTabBarTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "ScaffoldTabBarTest"),
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text(
-                    "ContainerTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "ContainerTest")},
-                ),
-                FlatButton(
-                  child: Text(
-                    "TransformTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "TransformTest")},
-                ),
-                FlatButton(
-                  child: Text(
-                    "DecoratedBoxTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "DecoratedBoxTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "BoxTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => Navigator.pushNamed(context, "BoxTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "PaddingTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => Navigator.pushNamed(context, "PaddingTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "StackOrPositionedTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "StackOrPositionedTest")},
-                ),
-                FlatButton(
-                  child: Text(
-                    "AlignTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () => {Navigator.pushNamed(context, "AlignTest")},
-                  color: Colors.blue,
-                ),
-                FlatButton(
-                  child: Text(
-                    "WarpTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => {Navigator.pushNamed(context, "WarpTest")},
-                ),
-                FlatButton(
-                  child: Text(
-                    "FlexTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => {
-                    Navigator.pushNamed(context, "FlexTest"),
-                  },
-                ),
-                FlatButton(
-                  child: Text(
-                    "RowOrColumnTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      {Navigator.pushNamed(context, "RowOrColumnTest")},
-                ),
-                FlatButton(
-                  child: Text(
-                    "Checked",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => Navigator.pushNamed(context, "CheckTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "ProgressTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => Navigator.pushNamed(context, "ProgressTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "TextFormFieldTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "TextFormFieldTest"),
-                ),
-                FlatButton(
-                  child: Text("TextFiledTest",
-                      style: TextStyle(color: Colors.white)),
-                  color: Colors.blue,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "TextFiledTest"),
-                ),
-                FlatButton(
-                  child: Text(
-                    "ImageTest",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  color: Colors.blue,
-                  onPressed: () => Navigator.pushNamed(context, "ImageTest"),
-                ),
-                FlatButton(
-                  child: Text("Bottom"),
-                  onPressed: () => Navigator.pushNamed(context, "BottomTest"),
-                ),
-                FlatButton(
-                  child: Text("TextTest"),
-                  onPressed: () => {Navigator.pushNamed(context, "TextTest")},
-                ),
-                FlatButton(
-                  onPressed: () => {Navigator.pushNamed(context, "Echo")},
-                  child: new Text("StatelessWidget"),
-                ),
-                FlatButton(
-                  child: Text("Status"),
-                  onPressed: () => Navigator.pushNamed(context, "TapboxA"),
-                ),
-                FlatButton(
-                  child: Text("ParentWidget"),
-                  onPressed: () => Navigator.pushNamed(context, "ParentWidget"),
-                ),
-                Image.asset("assets/images/rbt_main_main_checked.png"),
-                //图片加载 在pubspec.yaml flutter节点配置 assets节点 如果加载报错 建议flutter clean 再运行
-
-                FlatButton(
-                    onPressed: () {
-                      //非命名路由跳转
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      //   return MyTests(title: "ssss",);
-                      // }));
-                      // Navigator.pushNamed(context, "MyTests");
-                      Navigator.of(context)
-                          .pushNamed("MyTests", arguments: "ssss");
-                    },
-                    child: new Text("click me"))
-              ],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: setOnTap,
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
+        items: [
+          BottomNavigationBarItem(
+            title: Text(
+              "首页",
+              style: TextStyle(
+                  color: chooseIndex == 0 ? BaseThemeColors : Colors.black),
             ),
+            icon: chooseIndex == 0
+                ? Image.asset(
+                    "assets/images/rbt_main_main_checked.png",
+                    width: 22,
+                    height: 22,
+                  )
+                : Image.asset(
+                    "assets/images/rbt_main_main_unchecked.png",
+                    width: 22,
+                    height: 22,
+                  ),
           ),
-        ));
+          BottomNavigationBarItem(
+            title: Text(
+              "购物车",
+              style: TextStyle(
+                  color: chooseIndex == 1 ? BaseThemeColors : Colors.black),
+            ),
+            icon: chooseIndex == 1
+                ? Image.asset(
+                    "assets/images/rbt_main_gouwuche_checked.png",
+                    width: 22,
+                    height: 22,
+                  )
+                : Image.asset(
+                    "assets/images/rbt_main_gouwuche_unchecked.png",
+                    width: 22,
+                    height: 22,
+                  ),
+          ),
+          BottomNavigationBarItem(
+            title: Text(
+              "钱包",
+              style: TextStyle(
+                  color: chooseIndex == 2 ? BaseThemeColors : Colors.black),
+            ),
+            icon: chooseIndex == 2
+                ? Image.asset(
+                    "assets/images/rbt_main_task_checked.png",
+                    width: 22,
+                    height: 22,
+                  )
+                : Image.asset(
+                    "assets/images/rbt_main_task_unchecked.png",
+                    width: 22,
+                    height: 22,
+                  ),
+          ),
+          BottomNavigationBarItem(
+            title: Text(
+              "我的",
+              style: TextStyle(
+                  color: chooseIndex == 3 ? BaseThemeColors : Colors.black),
+            ),
+            icon: chooseIndex == 3
+                ? Image.asset(
+                    "assets/images/rbt_main_me_checked.png",
+                    width: 22,
+                    height: 22,
+                  )
+                : Image.asset(
+                    "assets/images/rbt_main_me_unchecked.png",
+                    width: 22,
+                    height: 22,
+                  ),
+          ),
+        ],
+        currentIndex: chooseIndex,
+      ),
+      body: pages[chooseIndex],
+    );
   }
 }

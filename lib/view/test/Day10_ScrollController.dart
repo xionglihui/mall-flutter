@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -56,12 +55,12 @@ class ScrollControllerTestStatus extends State {
       floatingActionButton: !showTopBtn
           ? null
           : FloatingActionButton(
-              child: Icon(Icons.arrow_forward),
-              onPressed: () {
-                _controller.animateTo(.0,
-                    duration: Duration(microseconds: 200), curve: Curves.ease);
-              },
-            ),
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          _controller.animateTo(.0,
+              duration: Duration(microseconds: 200), curve: Curves.ease);
+        },
+      ),
     );
   }
 }
