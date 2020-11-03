@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,6 @@ class HomeMain extends StatefulWidget {
 class HomeState extends State {
   @override
   Widget build(BuildContext context) {
-    final num = WordPair.random();
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
@@ -22,6 +20,13 @@ class HomeState extends State {
           child: Center(
             child: Column(
               children: <Widget>[
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
+                    "ProviderTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
                 FlatButton(
                   color: Colors.blue,
                   child: Text(
