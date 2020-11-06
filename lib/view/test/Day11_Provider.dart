@@ -1,7 +1,8 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ProviderTest extends StatefulWidget {
+class ProviderTest extends StatefulWidget {//没搞懂
   @override
   State<StatefulWidget> createState() => ProviderTestStatue();
 }
@@ -51,3 +52,4 @@ class ChangeNotifier extends Listenable {
     listeners.forEach((element) =>element);
   }
 }
+
