@@ -12,6 +12,7 @@ import 'package:mall_flutter/view/test/Day10_SingleChildScrollView.dart';
 import 'package:mall_flutter/view/test/Day11_InheritedWidget.dart';
 import 'package:mall_flutter/view/test/Day11_Provider.dart';
 import 'package:mall_flutter/view/test/Day11_WillPopScope.dart';
+import 'package:mall_flutter/view/test/Day12_FutureBuilder_StreamBuilder.dart';
 import 'package:mall_flutter/view/test/Day12_Theme.dart';
 import 'package:mall_flutter/view/test/Day2_Route.dart';
 import 'package:mall_flutter/view/test/Day3_Widget_Intro.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
               text: "你还好吗？",
               backgroundColor: Colors.red,
             ),
+        "FutureBuilderOrStreamBuilderTest":(context)=>FutureBuilderOrStreamBuilderTest(),
         "ThemeTest": (context) => ThemeTest(),
         "ProviderTest": (context) => ProviderTest(),
         "InheritedWidgetTest": (context) => InheritedWidgetTest(),

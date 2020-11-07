@@ -23,10 +23,19 @@ class HomeState extends State {
                 FlatButton(
                   color: Colors.blue,
                   child: Text(
+                    "FutureBuilderOrStreamBuilderTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Navigator.pushNamed(
+                      context, "FutureBuilderOrStreamBuilderTest"),
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
                     "ThemeTest",
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: ()=>{
+                  onPressed: () => {
                     Navigator.of(context).pushNamed("ThemeTest"),
                   },
                 ),
@@ -36,7 +45,7 @@ class HomeState extends State {
                     "ProviderTest",
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: ()=>{
+                  onPressed: () => {
                     Navigator.of(context).pushNamed("ProviderTest"),
                   },
                 ),

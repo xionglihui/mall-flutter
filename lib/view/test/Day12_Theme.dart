@@ -8,6 +8,7 @@ class ThemeTest extends StatefulWidget {
 }
 
 class ThemeTestState extends State {
+
   Color themeColor = Colors.teal;
 
   @override
