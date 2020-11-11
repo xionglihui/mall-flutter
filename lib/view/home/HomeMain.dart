@@ -23,6 +23,16 @@ class HomeState extends State {
                 FlatButton(
                   color: Colors.blue,
                   child: Text(
+                    "DailogTest",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: (){
+                    Navigator.pushNamed(context, "DailogTest");
+                  },
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  child: Text(
                     "FutureBuilderOrStreamBuilderTest",
                     style: TextStyle(color: Colors.white),
                   ),
